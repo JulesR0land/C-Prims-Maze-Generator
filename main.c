@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stddef.h>
 
 #include "options.h"
 #include "generator.h"

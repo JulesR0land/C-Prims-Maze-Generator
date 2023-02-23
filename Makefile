@@ -3,7 +3,9 @@
 SRC			=	main.c				\
 				src/args_handler.c	\
 				src/generator.c		\
-				src/maze_printer.c
+				src/maze_printer.c	\
+				src/mark_handler.c	\
+				src/map_modifier.c
 
 NAME		=	prims-generator
 
