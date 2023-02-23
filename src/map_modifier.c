@@ -33,6 +33,16 @@ char **create_map(pos_t size)
     return map;
 }
 
+void free_map(char **map, int height)
+{
+    int array_height = height * 2 + 1;
+
+    for (int i = 0; i < array_height; i++) {
+        free(map[i]);
+    }
+    free(map);
+}
+
 char **add_new_way(char **map, marked_tile_t *tile, int tile_nb)
 {
     int dir = 0;

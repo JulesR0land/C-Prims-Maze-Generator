@@ -11,6 +11,7 @@ int main(int ac, char **av)
     args_handler(ac, av, &args);
     map = generator((pos_t){args.height, args.width});
     print_maze(map, (pos_t){args.height, args.width});
+    free_map(map, args.height);
 
     return 0;
 }

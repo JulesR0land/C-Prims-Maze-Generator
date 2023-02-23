@@ -31,6 +31,7 @@ void print_maze(char **map, pos_t size);
 
 /* --- map_modifier.c --- */
 char **create_map(pos_t size);
+void free_map(char **map, int height);
 char **add_new_way(char **map, marked_tile_t *tile, int tile_nb);
 
 /* --- mark_handler.c --- */
