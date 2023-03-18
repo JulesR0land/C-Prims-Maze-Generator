@@ -17,4 +17,8 @@ So a size of 3 will draw a maze like this:
 The default size is 7 in height and width but they can be modified independently with the "--height *int*" and "--width *int*" options.
 The minimum is 3 for both.
 
-The random seed is based on time, so you will need to wait a second before getting a new maze.
+The default start and finish points are random but they can be modified
+independently with the "--start *"X Y"* " and "--finish *"X Y"* " options.
+If the finish is the same as start, it will be randomized.
+
+The random seed is based on time(), so you will need to wait a second before getting a new maze.

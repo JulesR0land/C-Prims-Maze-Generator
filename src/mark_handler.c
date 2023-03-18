@@ -1,6 +1,7 @@
 #include <stdlib.h>
 
-#include "generator.h"
+#include "prims.h"
+
 
 marked_tile_t *remove_marked_tile(marked_tile_t *tile, int tile_nb)
 {
@@ -21,7 +22,7 @@ marked_tile_t *remove_marked_tile(marked_tile_t *tile, int tile_nb)
     return first;
 }
 
-marked_tile_t *mark_tile(pos_t pos, enum cards card)
+marked_tile_t *mark_tile(coord_t pos, enum cards card)
 {
     marked_tile_t *new_tile = malloc(sizeof(marked_tile_t));
 
@@ -33,7 +34,7 @@ marked_tile_t *mark_tile(pos_t pos, enum cards card)
     return new_tile;
 }
 
-void add_marked_tile(marked_tile_t *tile, pos_t pos, enum cards card)
+void add_marked_tile(marked_tile_t *tile, coord_t pos, enum cards card)
 {
     marked_tile_t *new_tile = mark_tile(pos, card);
 
@@ -41,7 +42,7 @@ void add_marked_tile(marked_tile_t *tile, pos_t pos, enum cards card)
     tile->next = new_tile;
 }
 
-void add_cardinal(marked_tile_t *tile, pos_t pos, enum cards card)
+void add_cardinal(marked_tile_t *tile, coord_t pos, enum cards card)
 {
     for (; tile->pos.x != pos.x || tile->pos.y != pos.y; tile = tile->next);
 
@@ -49,7 +50,7 @@ void add_cardinal(marked_tile_t *tile, pos_t pos, enum cards card)
     tile->cards_nb++;
 }
 
-static bool check_tile_pos(pos_t pos, pos_t size)
+static bool check_tile_pos(coord_t pos, coord_t size)
 {
     if (pos.y < 0 || pos.y >= size.y)
         return false;
@@ -58,11 +59,11 @@ static bool check_tile_pos(pos_t pos, pos_t size)
     return true;
 }
 
-int mark_tiles_around(char **map, marked_tile_t *tile, int tile_nb, pos_t size)
+int mark_tiles_around(char **map, marked_tile_t *tile, int tile_nb, coord_t size)
 {
     marked_tile_t *first = tile;
     int marked_tile_nb = 0;
-    pos_t to_mark;
+    coord_t to_mark;
 
     for (int i = 0; i < tile_nb; i++)
         tile = tile->next;

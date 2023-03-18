@@ -1,8 +1,8 @@
 #include <stdlib.h>
 
-#include "generator.h"
+#include "prims.h"
 
-char **create_map(pos_t size)
+char **create_map(coord_t size)
 {
     int array_height = size.y * 2 + 1;
     int array_width = size.x * 2 + 1;
@@ -27,10 +27,13 @@ char **create_map(pos_t size)
         for (int i = 1; i < array_width; i += 2)
             map[array_height - 1][i] = 'X';
 
-    map[1][0] = 'S';
-    map[array_height - 2][array_width - 1] = 'F';
-
     return map;
+}
+
+void add_start_finish(char **map, coord_t start, coord_t finish)
+{
+    map[start.y * 2 + 1][start.x * 2 + 1] = 'S';
+    map[finish.y * 2 + 1][finish.y * 2 + 1] = 'F';
 }
 
 void free_map(char **map, int height)

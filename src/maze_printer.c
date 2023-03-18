@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-#include "generator.h"
+#include "prims.h"
 
-void print_maze(char **map, pos_t size)
+void print_maze(char **map, coord_t size)
 {
     int array_height = size.y * 2 + 1;
     int array_width = size.x * 2 + 1;

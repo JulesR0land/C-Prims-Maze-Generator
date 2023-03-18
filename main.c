@@ -1,7 +1,6 @@
 #include <stddef.h>
 
-#include "options.h"
-#include "generator.h"
+#include "prims.h"
 
 int main(int ac, char **av)
 {
@@ -9,9 +8,9 @@ int main(int ac, char **av)
     char **map = NULL;
 
     args_handler(ac, av, &args);
-    map = generator((pos_t){args.height, args.width});
-    print_maze(map, (pos_t){args.height, args.width});
-    free_map(map, args.height);
+    map = generator(args.size, args.start, args.finish);
+    print_maze(map, args.size);
+    free_map(map, args.size.y);
 
     return 0;
 }
