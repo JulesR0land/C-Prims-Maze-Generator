@@ -31,7 +31,6 @@ char **generator(coord_t size, coord_t start, coord_t finish)
 {
     char **map = create_map(size);
 
-    srand(time(0));
     map = prims_loop(map, size);
     add_start_finish(map, start, finish);
 

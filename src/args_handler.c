@@ -130,8 +130,6 @@ void args_handler(int ac, char **av, struct arguments *arguments)
         NULL, NULL, NULL
     };
 
-    srand(time(0));
-
     setup_default(arguments);
     argp_parse(&argp, ac, av, 0, 0, arguments);
     check_start_point(arguments);

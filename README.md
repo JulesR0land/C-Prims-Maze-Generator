@@ -21,4 +21,4 @@ The default start and finish points are random but they can be modified
 independently with the "--start *"X Y"* " and "--finish *"X Y"* " options.
 If the finish is the same as start, it will be randomized.
 
-The random seed is based on time(), so you will need to wait a second before getting a new maze.
+The random seed is based on arc4random().
